@@ -1,0 +1,29 @@
+{
+  "name": "comment-debug",
+  "version": "0.1.0",
+  "description": "a debug helper base on comment-macro",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/turingou/comment-debug.git"
+  },
+  "keywords": [
+    "debug",
+    "comment-macro",
+    "comment",
+    "comment-debug"
+  ],
+  "author": "turing <o.u.turing@Gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/turingou/comment-debug/issues"
+  },
+  "homepage": "https://github.com/turingou/comment-debug",
+  "dependencies": {
+    "comment-macros": "0.0.1",
+    "debug": "^2.1.0"
+  }
+}
