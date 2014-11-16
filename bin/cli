@@ -3,12 +3,20 @@
 var fs = require('fs');
 var path = require('path');
 var commentDebug = require('../index');
-var converter = new commentDebug();
 var pkg = require('../package.json');
 
 var cwd = process.cwd();
 var argv = require('minimist')(process.argv.slice(2));
 var files = argv._;
+
+var options = {};
+
+if (argv.n)
+  options.subnamespaceMarker = argv.n;
+if (argv.v)
+  options.varsMarker = argv.v;  
+
+var converter = new commentDebug(options);
 
 for (var i = 0; i < files.length; i++) {
   var filePath = path.join(cwd, files[i]);
@@ -34,7 +42,7 @@ try {
 function createDist(filename) {
   if (filename.indexOf('.') === -1)
     return filename;
-  
+
   var filenameOnly = filename.substr(0, filename.lastIndexOf('.'));
   var afterfix = filename.substr(filename.lastIndexOf('.'));
 

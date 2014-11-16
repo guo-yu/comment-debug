@@ -25,6 +25,22 @@ $ npm run example
 $ npm test
 ```
 
+### Cli
+This module provides command line interface:
+
+```bash
+$ comment-debug \
+  example.js example2.js \
+  -v '{{}}' \
+  -n '[]' \
+  -o ./dist \
+```
+
+#### Cli options:
+- `-o`: Custom the target output folder based on `cwd`, by default, dist files will be created in the same `cwd`.
+- `-n`: Custom `subNamespaceMarker`, by default, it is `<>`.
+- `-v`: Custom `varsMarker`, by default, it is `{}`.
+
 ### API
 check this file: `index.js`
 
