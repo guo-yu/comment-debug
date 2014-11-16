@@ -1,8 +1,9 @@
 {
   "name": "comment-debug",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "a debug helper base on comment-macro",
   "main": "index.js",
+  "bin": "bin/cli",
   "scripts": {
     "example": "node example/convert.js",
     "test": "DEBUG=comment-debug,comment-debug:* node example/example.out.js"
@@ -24,7 +25,8 @@
   },
   "homepage": "https://github.com/turingou/comment-debug",
   "dependencies": {
-    "comment-macros": "0.0.1"
+    "comment-macros": "0.0.1",
+    "minimist": "^1.1.0"
   },
   "devDependencies": {
     "debug": "^2.1.0"

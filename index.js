@@ -9,7 +9,9 @@ function debug(configs) {
   defaultConfigs.subnamespaceMarker = '<>';
   defaultConfigs.varsMarker = '{}';
 
-  this.configs = configs || defaultConfigs;
+  this.configs = configs && isEmpty(configs) ? 
+    configs : 
+    defaultConfigs;
 }
 
 debug.prototype.process = process;
@@ -67,4 +69,8 @@ function process(js) {
   }
 
   return macro.process(js);
+}
+
+function isEmpty(obj) {
+  return Object.keys(obj).length === 0;
 }

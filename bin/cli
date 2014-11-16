@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var path = require('path');
+var commentDebug = require('../index');
+var converter = new commentDebug();
+var pkg = require('../package.json');
+
+var cwd = process.cwd();
+var argv = require('minimist')(process.argv.slice(2));
+var files = argv._;
+
+for (var i = 0; i < files.length; i++) {
+  var filePath = path.join(cwd, files[i]);
+
+  if (!fs.existsSync(filePath))
+    throw new Error(pkg.name + ':cli(), file not found ' + filePath);
+}
+
+try {
+  files.forEach(function(file){
+    var filePath = path.join(cwd, file);
+    var fileOutPath = argv.o ? 
+      path.resolve(cwd, argv.o, createDist(file)) :
+      path.resolve(cwd, createDist(file));
+
+    var output = converter.process(fs.readFileSync(filePath).toString());
+    return fs.writeFileSync(fileOutPath, output);
+  });
+} catch (err) {
+  throw err;
+}
+
+function createDist(filename) {
+  if (filename.indexOf('.') === -1)
+    return filename;
+  
+  var filenameOnly = filename.substr(0, filename.lastIndexOf('.'));
+  var afterfix = filename.substr(filename.lastIndexOf('.'));
+
+  return filenameOnly + '-debug' + afterfix;
+}
