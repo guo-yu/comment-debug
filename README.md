@@ -1,6 +1,6 @@
 ## comment-debug ![NPM version](https://img.shields.io/npm/v/comment-debug.svg?style=flat) 
 
-a debug helper base on comment-macro
+a debug helper base on comment-macro.
 
 ### Installation
 ```bash
@@ -10,6 +10,19 @@ $ npm install comment-debug
 ### Example
 ```js
 var commentDebug = require('comment-debug');
+var converter = new commentDebug();
+
+// Start process
+converter.process('//: <myNamespace> var `a` is {a}');
+
+// => 'debug('comment-debug:myNamespace')("var `a` is 3")'
+```
+Test the example convert file in `./example` folder by :
+
+```bash
+// build the dist file (will be `./example/example.out.js`)
+$ npm run example
+$ npm test
 ```
 
 ### API

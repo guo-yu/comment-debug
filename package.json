@@ -4,7 +4,8 @@
   "description": "a debug helper base on comment-macro",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "example": "node example/convert.js",
+    "test": "DEBUG=comment-debug,comment-debug:* node example/example.out.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,9 @@
   },
   "homepage": "https://github.com/turingou/comment-debug",
   "dependencies": {
-    "comment-macros": "0.0.1",
+    "comment-macros": "0.0.1"
+  },
+  "devDependencies": {
     "debug": "^2.1.0"
   }
 }
