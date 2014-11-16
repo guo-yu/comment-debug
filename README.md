@@ -17,10 +17,10 @@ converter.process('//: <myNamespace> var `a` is {a}');
 
 // => 'debug('comment-debug:myNamespace')("var `a` is 3")'
 ```
-Test the example convert file in `./example` folder by :
+Test the example convert file in `./example` folder, or by command `npm run example`.
+this command will build the dist file `./example/example.out.js`, you can check out the file to understand what had happend.
 
 ```bash
-// build the dist file (will be `./example/example.out.js`)
 $ npm run example
 $ npm test
 ```
